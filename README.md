@@ -28,11 +28,11 @@ React hooks
 
 Structure
 
+- Total
 - AddExpense
 - ExpenseList
   - ExpenseList
     - Expense
-    - Total
 
 My study from this project
 
