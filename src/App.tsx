@@ -55,7 +55,7 @@ function App() {
           <SetSearchDateContext.Provider value={setSearchDate}>
             <div className="bg-black m-0">
               <h1 className="h3 text-center py-3 m-0 text-white">
-                <i className="bi bi-coin"></i> Expense Trucker
+                <i className="bi bi-coin"></i> Expense Tracker
               </h1>
             </div>
             <Search />
