@@ -1,0 +1,9 @@
+.body {
+  background-color: #dfdfdf;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.form-label {
+  font-weight: bolder;
+  color: rgb(50, 50, 50);
+}
