@@ -11,14 +11,25 @@ import {
 
 import { ExpenseType } from "./scripts";
 
+const REACT_APP_FIREBASE_APIKEY = process.env.REACT_APP_FIREBASE_APIKEY;
+const REACT_APP_FIREBASE_AUTHDOMAIN = process.env.REACT_APP_FIREBASE_AUTHDOMAIN;
+const REACT_APP_FIREBASE_PROJECTID = process.env.REACT_APP_FIREBASE_PROJECTID;
+const REACT_APP_FIREBASE_STORAGEBUCKET =
+  process.env.REACT_APP_FIREBASE_STORAGEBUCKET;
+const REACT_APP_FIREBASE_MESSAGINGSENDERID =
+  process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID;
+const REACT_APP_FIREBASE_APPID = process.env.REACT_APP_FIREBASE_APPID;
+const REACT_APP_FIREBASE_MEASUREMENTID =
+  process.env.REACT_APP_FIREBASE_MEASUREMENTID;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCm2Ren0IddpSUcR844JifkFYw1OOQQqmA",
-  authDomain: "expense-tracker-8205b.firebaseapp.com",
-  projectId: "expense-tracker-8205b",
-  storageBucket: "expense-tracker-8205b.appspot.com",
-  messagingSenderId: "400193135342",
-  appId: "1:400193135342:web:2071a612e9f4ea786fc9ff",
-  measurementId: "G-79LL2D8JES",
+  apiKey: REACT_APP_FIREBASE_APIKEY,
+  authDomain: REACT_APP_FIREBASE_AUTHDOMAIN,
+  projectId: REACT_APP_FIREBASE_PROJECTID,
+  storageBucket: REACT_APP_FIREBASE_STORAGEBUCKET,
+  messagingSenderId: REACT_APP_FIREBASE_MESSAGINGSENDERID,
+  appId: REACT_APP_FIREBASE_APPID,
+  measurementId: REACT_APP_FIREBASE_MEASUREMENTID,
 };
 
 const app = initializeApp(firebaseConfig);
