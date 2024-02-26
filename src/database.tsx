@@ -20,8 +20,6 @@ const VITE_FIREBASE_MESSAGINGSENDERID = import.meta.env
 const VITE_FIREBASE_APPID = import.meta.env.VITE_FIREBASE_APPID;
 const VITE_FIREBASE_MEASUREMENTID = import.meta.env.VITE_FIREBASE_MEASUREMENTID;
 
-console.log("env: ", import.meta.env.VITE_FIREBASE_APIKEY);
-
 const firebaseConfig = {
   apiKey: VITE_FIREBASE_APIKEY,
   authDomain: VITE_FIREBASE_AUTHDOMAIN,
