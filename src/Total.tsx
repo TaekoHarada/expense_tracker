@@ -89,23 +89,19 @@ const Total: React.FC = () => {
   return (
     <div
       id="total_page"
-      className="rounded container-md p-5 bg-white mb-5 shadow-sm"
+      className="rounded container-md py-3 py-md-5 bg-white mb-2 shadow-sm"
     >
-      <h3>
-        Summary
-        <span className="badge rounded-pill text-bg-light border border-primary fs-6 fst-italic ms-3 px-3">
-          {searchDate.year !== "" ? searchDate.year : "All years"}
-          {", "}
-          {searchDate.month !== "-1" ? searchDate.month : "All months"}
-        </span>
-      </h3>
-      <div className="row">
-        <div className="col-4">
+      <span className="badge rounded-pill text-bg-light border border-primary fs-6 fst-italic px-2">
+        Summary of {searchDate.year !== "" ? searchDate.year : "All years"}
+        {", "}
+        {searchDate.month !== "-1" ? searchDate.month : "All months"}
+      </span>
+      <div className="d-flex flex-column flex-md-row">
+        <div className="col-md-6">
           {categoryTotalList.map((value, index) => (
             <div key={index} className="row my-1 bg-light">
               <div className="totalCategory col">
                 <i className={CategoryIcons[value[0]]}></i>
-                {"  "}
                 {value[0]}
               </div>
               <div className="totalValue col text-end">
@@ -120,7 +116,8 @@ const Total: React.FC = () => {
               .toLocaleString()}
           </div>
         </div>
-        <div className="col-8 p-0">
+
+        <div className="col-md-6 p-0">
           <Chart
             chartType="PieChart"
             data={pieData}

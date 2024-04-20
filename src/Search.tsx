@@ -1,14 +1,8 @@
 import { useState, useContext } from "react";
-import {
-  SetExpenseContext,
-  SetSearchDateContext,
-} from "./ExpenseContext";
+import { SetExpenseContext, SetSearchDateContext } from "./ExpenseContext";
 import { checkYear } from "./scripts";
 
-import {
-  MonthList,
-  getExpenseListByTerm,
-} from "./scripts";
+import { MonthList, getExpenseListByTerm } from "./scripts";
 
 const Search: React.FC = () => {
   const setExpenseList = useContext(SetExpenseContext);
@@ -56,10 +50,10 @@ const Search: React.FC = () => {
   };
 
   return (
-    <div id="search_page" className="container-md mt-5 mb-2 p-0">
+    <div id="search_page" className="container-md mt-3 mt-md-5 mb-2 p-0">
       <form onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="col-2">
+        <div className="d-flex flex-column flex-md-row gap-2">
+          <div className="col-md-3">
             <label className="form-label m-0">Year</label>
             <input
               className="form-control text-end"
@@ -74,7 +68,7 @@ const Search: React.FC = () => {
               </span>
             )}
           </div>
-          <div className="col-2">
+          <div className="col-md-3">
             <label className="form-label m-0">Month</label>
             <select
               className="form-select"
@@ -93,12 +87,12 @@ const Search: React.FC = () => {
             </select>
           </div>
 
-          <div className="col-3 position-relative">
+          <div className="col-md-3">
             <button
               type="submit"
-              className="btn btn-primary position-absolute bottom-0 px-3 fw-bolder"
+              className="btn btn-primary px-3 fw-bolder mt-md-4"
             >
-              Search Expense List
+              Search
             </button>
           </div>
         </div>

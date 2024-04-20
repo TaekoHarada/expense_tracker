@@ -117,31 +117,46 @@ const Expense: React.FC<ExpenseProps> = ({ expense }) => {
 
   // Page For Reading
   const renderExpenseDetails = () => (
-    <div id="expense_page" className="row p-1">
-      <label className="ex_year col-1 text-end">{formData.year} </label>
-      <label className="month col-1">{formData.month}</label>
-      <label className="day col-1 text-end">{formData.day}</label>
-      <label className="ex_name col-3">{formData.name}</label>
-      <label className="ex_category col-2">{formData.category}</label>
-      <label className="ex_amount col-1 text-end">{formData.amount}</label>
-      <label className="ex_quantity col-1 text-end">{formData.quantity}</label>
-      <div className="col-1 position-relative">
-        <button
-          className="btn btn-secondary btn-sm position-absolute end-0"
-          type="button"
-          onClick={handleEdit}
-        >
-          Edit
-        </button>
+    <div id="expense_page" className="row py-2">
+      <div className="col-3 d-flex flex-column flex-md-row gap-2 justify-content-md-end">
+        <label className="col-md-auto text-end">{formData.year} </label>
+        <label className="col-md-auto text-end">
+          {formData.month} {formData.day}
+        </label>
       </div>
-      <div className="col-1">
-        <button
-          className="btn btn-warning  btn-sm"
-          type="button"
-          onClick={handleDelete}
-        >
-          Delete
-        </button>
+
+      <div className="col-3 d-flex flex-column flex-md-row gap-2">
+        <label className="ex_name col-md-auto">{formData.name}</label>
+        <label className="ex_category col-md-auto">{formData.category}</label>
+      </div>
+      <div className="col-3 d-flex flex-column flex-md-row gap-2">
+        <label className="ex_amount col-md-5 text-end">
+          ${formData.amount}
+        </label>
+        <label className="ex_quantity col-md-5 text-end">
+          × {formData.quantity}
+        </label>
+      </div>
+
+      <div className="col-2 d-flex flex-column flex-md-row gap-2">
+        <div className="col-md-auto">
+          <button
+            className="btn btn-secondary btn-sm"
+            type="button"
+            onClick={handleEdit}
+          >
+            Edit
+          </button>
+        </div>
+        <div className="col-md-auto">
+          <button
+            className="btn btn-warning btn-sm"
+            type="button"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -150,40 +165,43 @@ const Expense: React.FC<ExpenseProps> = ({ expense }) => {
   const renderEditForm = () => (
     <div id="expense_form_page">
       <form onSubmit={handleSaveEdit}>
-        <div className="row p-1">
-          <div className="col-1">
-            <input
-              className="form-control form-control-sm text-end"
-              type="text"
-              name="year"
-              value={formData.year}
-              onChange={onInputChange}
-            />
+        <div className="d-flex flex-column flex-lg-row flex-wrap gap-1 px-3 py-1">
+          <div className="col-lg-3 row">
+            <div className="col-4">
+              <input
+                className="form-control form-control-sm text-end"
+                type="text"
+                name="year"
+                value={formData.year}
+                onChange={onInputChange}
+              />
+            </div>
+            <div className="col-4">
+              <select
+                className="form-select form-select-sm"
+                name="month"
+                value={formData.month}
+                onChange={onSelectChange}
+              >
+                {Object.values(MonthList).map((value, index) => (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="col-4">
+              <input
+                className="form-control form-control-sm text-end"
+                type="text"
+                name="day"
+                value={formData.day}
+                onChange={onInputChange}
+              />
+            </div>
           </div>
-          <div className="col-1">
-            <select
-              className="form-select form-select-sm"
-              name="month"
-              value={formData.month}
-              onChange={onSelectChange}
-            >
-              {Object.values(MonthList).map((value, index) => (
-                <option key={index} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="col-1">
-            <input
-              className="form-control form-control-sm text-end"
-              type="text"
-              name="day"
-              value={formData.day}
-              onChange={onInputChange}
-            />
-          </div>
-          <div className="col-3">
+
+          <div className="col-lg-3">
             <input
               className="form-control form-control-sm"
               type="text"
@@ -192,7 +210,7 @@ const Expense: React.FC<ExpenseProps> = ({ expense }) => {
               onChange={onInputChange}
             />
           </div>
-          <div className="col-2">
+          <div className="col-lg-1">
             <select
               className="form-select form-select-sm"
               id="category"
@@ -207,41 +225,49 @@ const Expense: React.FC<ExpenseProps> = ({ expense }) => {
               ))}
             </select>
           </div>
-          <div className="col-1">
-            <input
-              className="form-control form-control-sm text-end"
-              type="text"
-              name="amount"
-              value={formData.amount}
-              onChange={onInputChange}
-            />
+
+          <div className="col-lg-2 row ps-lg-3">
+            <p className="col-1">$</p>
+            <div className="col-4 p-0 m-0">
+              <input
+                className="form-control form-control-sm text-end"
+                type="text"
+                name="amount"
+                value={formData.amount}
+                onChange={onInputChange}
+              />
+            </div>
+            <p className="col-1">×</p>
+            <div className="col-4 p-0 m-0">
+              <input
+                className="form-control form-control-sm text-end"
+                type="text"
+                name="quantity"
+                value={formData.quantity}
+                onChange={onInputChange}
+              />
+            </div>
           </div>
-          <div className="col-1">
-            <input
-              className="form-control form-control-sm text-end"
-              type="text"
-              name="quantity"
-              value={formData.quantity}
-              onChange={onInputChange}
-            />
-          </div>
-          <div className="col-1  position-relative">
-            <button
-              className="btn btn-primary btn-sm position-absolute end-0"
-              type="submit"
-              onClick={handleSaveEdit}
-            >
-              Save
-            </button>
-          </div>
-          <div className="col-1">
-            <button
-              className="btn btn-warning  btn-sm"
-              type="button"
-              onClick={handleCancelEdit}
-            >
-              Cancel
-            </button>
+
+          <div className="col-lg-2 d-flex flex-row gap-2 ps-lg-3">
+            <div className="col-auto">
+              <button
+                className="btn btn-primary btn-sm"
+                type="submit"
+                onClick={handleSaveEdit}
+              >
+                Save
+              </button>
+            </div>
+            <div className="col-auto">
+              <button
+                className="btn btn-warning  btn-sm"
+                type="button"
+                onClick={handleCancelEdit}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       </form>

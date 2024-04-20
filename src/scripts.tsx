@@ -54,18 +54,18 @@ export const CategoryIcons: Record<string, string> = {
 
 // The reason for array is that index is useful (sorting, Date object)
 export const MonthList = [
-  "January",
-  "February",
-  "March",
-  "April",
+  "Jan.",
+  "Feb.",
+  "Mar.",
+  "Apr.",
   "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "Jun.",
+  "Jul.",
+  "Aug.",
+  "Sep.",
+  "Oct.",
+  "Nov.",
+  "Dec.",
 ];
 
 //

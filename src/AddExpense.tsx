@@ -183,54 +183,59 @@ const AddExpense: React.FC = () => {
       className="container-md border py-2 mb-2 bg-white rounded"
     >
       <form onSubmit={onSubmit}>
-        <div className="row">
-          <div className="col-1">
-            <label className="form-label m-0">Year</label>
-            <input
-              className="form-control form-control-sm text-end"
-              type="text"
-              name="year"
-              id="year"
-              value={formData.year}
-              onChange={onInputChange}
-            />
-            {errMessages.year && (
-              <div style={{ color: "red" }}>Input valid year: 1901 - 2099</div>
-            )}
+        <div className="d-flex flex-column flex-md-row gap-2 flex-wrap">
+          <div className="col-md-3 row">
+            <div className="col-4">
+              <label className="form-label m-0">Year</label>
+              <input
+                className="form-control form-control-sm text-end"
+                type="text"
+                name="year"
+                id="year"
+                value={formData.year}
+                onChange={onInputChange}
+              />
+              {errMessages.year && (
+                <div style={{ color: "red" }}>
+                  Input valid year: 1901 - 2099
+                </div>
+              )}
+            </div>
+
+            <div className="col-4">
+              <label className="form-label m-0">Month</label>
+              <select
+                name="month"
+                id="month"
+                className="form-select form-select-sm"
+                value={formData.month}
+                onChange={onSelectChange}
+              >
+                {Object.values(MonthList).map((value, index) => (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="col-3">
+              <label className="form-label m-0">Day</label>
+              <input
+                className="form-control form-control-sm text-end"
+                type="text"
+                name="day"
+                id="day"
+                value={formData.day}
+                onChange={onInputChange}
+              />
+              {errMessages.day && (
+                <div style={{ color: "red" }}>Input valid day</div>
+              )}
+            </div>
           </div>
 
-          <div className="col-2">
-            <label className="form-label m-0">Month</label>
-            <select
-              name="month"
-              id="month"
-              className="form-select form-select-sm"
-              value={formData.month}
-              onChange={onSelectChange}
-            >
-              {Object.values(MonthList).map((value, index) => (
-                <option key={index} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="col-1">
-            <label className="form-label m-0">Day</label>
-            <input
-              className="form-control form-control-sm text-end"
-              type="text"
-              name="day"
-              id="day"
-              value={formData.day}
-              onChange={onInputChange}
-            />
-            {errMessages.day && (
-              <div style={{ color: "red" }}>Input valid day</div>
-            )}
-          </div>
-          <div className="col-3">
+          <div className="col-md-3">
             <label className="ex_name form-label m-0" htmlFor="name">
               name
             </label>
@@ -244,7 +249,7 @@ const AddExpense: React.FC = () => {
             />
           </div>
 
-          <div className="col-2">
+          <div className="col-md-2">
             <label className="ex_category form-label m-0" htmlFor="category">
               category
             </label>
@@ -263,9 +268,9 @@ const AddExpense: React.FC = () => {
             </select>
           </div>
 
-          <div className="col-1">
+          <div className="col-md-1">
             <label className="ex_amount form-label m-0" htmlFor="amount">
-              amount
+              amount ($)
             </label>
             <input
               className="form-control form-control-sm text-end"
@@ -282,7 +287,7 @@ const AddExpense: React.FC = () => {
             )}
           </div>
 
-          <div className="col-1">
+          <div className="col-md-1">
             <label className="ex_quantity form-label m-0" htmlFor="quantity">
               quantity
             </label>
@@ -301,11 +306,8 @@ const AddExpense: React.FC = () => {
             )}
           </div>
 
-          <div className="col-1 position-relative">
-            <button
-              type="submit"
-              className="btn btn-primary  btn-sm  position-absolute bottom-0 fw-bolder"
-            >
+          <div className="col-md-1 mt-md-4">
+            <button type="submit" className="btn btn-primary  btn-sm fw-bolder">
               Add New
             </button>
           </div>
